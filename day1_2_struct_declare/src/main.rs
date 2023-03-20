@@ -9,11 +9,11 @@ struct SimplePerson {
 impl SimplePerson {
 
     fn descr() -> String {
-        "Peson is a man, woman, or child.".to_string()
+        return "Person is a man, woman, or child.".to_string();
     }
 
     fn name(&self) -> String {
-        format!("{} {}", self.first_name, self.last_name)
+        return format!("{} {}", self.first_name, self.last_name);
     }
 }
 
@@ -23,7 +23,7 @@ trait Greeter {
 
 impl Greeter for SimplePerson {
     fn greeting(&self, greet: &str) -> String {
-        format!("{} {}", greet,  self.first_name)
+        return format!("{} {}", greet,  self.first_name);
     }
 }
 
@@ -35,8 +35,8 @@ struct DisplayPerson {
 
 impl Display for DisplayPerson {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "Person with Display trait (first_name: {}, last_name: {}, age: {})",
-               self.first_name, self.last_name, self.age)
+        return write!(f, "Person with Display trait (first_name: {}, last_name: {}, age: {})",
+               self.first_name, self.last_name, self.age);
     }
 }
 
@@ -102,13 +102,14 @@ fn main() {
         last_name: String::from("Smith"),
         age: 45,
       };
-      
+
       // Symmetry
       println!("{}", mike == mike2);
       println!("{}", mike2 == mike);
-      
+
       // Transitivity
       println!("{}", mike == mike3);
       println!("{}", mike2 == mike3);
-      println!("{}", mike == mike2); 
+      println!("{}", mike == mike2);
 }
+
