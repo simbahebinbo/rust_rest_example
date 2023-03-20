@@ -9,26 +9,25 @@ edition = "2021"
 # add this library,and cargo install
 
 # bson (required)
-serde = { version = "1", features = ["derive"] }
-rbson = "2.0"
-serde_json = "1.0.79"
+serde = { version = "1.0.157", features = ["derive"] }
+rbson = "2.0.5"
+serde_json = "1.0.94"
 
 # logging lib(required)
-log = "0.4"
-fast_log="1.5.1"
+log = "0.4.17"
+fast_log="1.5.54"
 
 #async runtime lib
-tokio = { version = "1.12", features = ["full"] }
+tokio = { version = "1.26.0", features = ["full"] }
 
 #db drivers
-postgres = "0.19.2"
-tokio-postgres = "0.7.5"
-# db schema migrations
-refinery = {version = "0.8.4", features = ["tokio-postgres"]}
+postgres = "0.19.4"
+tokio-postgres = "0.7.7"
+# db schema sql
+refinery = {version = "0.8.7", features = ["tokio-postgres"]}
 
 # rbatis (required) default is all-database+runtime-async-std-rustls
-rbatis =  { version = "3.0" } 
-# also if you use actix-web+mysql
-# rbatis = { version = "3.0", default-features = false, features = ["mysql","runtime-async-std-rustls"] }
+rbatis =  { version = "3.1.16" }
 
-actix-web = "4"
+actix-web = "4.3.1"
+

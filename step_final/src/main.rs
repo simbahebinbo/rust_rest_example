@@ -9,7 +9,6 @@ use actix_web::web::{Data};
 use crate::model::{Users};
 use crate::service::UsersService;
 
-mod migrations;
 mod model;
 mod service;
 mod handlers;
@@ -19,17 +18,16 @@ mod handlers;
 async fn main() -> std::io::Result<()> {
 
     let host = "localhost";
-    let user = "postgres";
-    let dbname = "RBatisExample";
+    let port = "5432";
+    let user = "pig";
+    let password = "123456";
+    let dbname = "example";
 
-    let mconn_string = std::format!("host={} user={} dbname={}", host, user, dbname);
-    let rconn_string = std::format!("postgres://{1}@{0}:5432/RBatisExample", host, user);
+    let rconn_string = std::format!("postgres://{user}:{password}@{host}:{port}/{dbname}",
+                                    host=host, port=port, user=user, password=password, dbname=dbname);
     
     fast_log::init(Config::new().console()).unwrap();
     log::info!("Starting");
-
-    log::info!("Migrate database structure");
-    migrations::migrate(&mconn_string).await.unwrap();
 
     let data: Data<UsersService> = Data::new(UsersService::new(&rconn_string).await);
     HttpServer::new(move || {
@@ -41,7 +39,8 @@ async fn main() -> std::io::Result<()> {
             .service(handlers::create_user)
             .service(handlers::update_user)
     })
-    .bind(("127.0.0.1", 8080))?
+    .bind(("127.0.0.1", 8888))?
     .run()
     .await
 }
+

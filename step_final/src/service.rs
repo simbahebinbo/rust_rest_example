@@ -55,3 +55,5 @@ impl UsersService {
     #[py_sql("update users set name = #{uuser.name} where id = #{uuser.id} RETURNING id;")]
     async fn update_with_identity(rb: &Rbatis, uuser: &Users) -> Option<u64> { impled!() }
 }
+
+

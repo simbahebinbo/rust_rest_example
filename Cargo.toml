@@ -1,6 +1,9 @@
 [workspace]
 members = [
-    "day1_1_numbers", "day1_1_enums", "day1_1_strings", "day1_1_immutability_and_refs",
+    "day1_1_numbers",
+    "day1_1_enums",
+    "day1_1_strings",
+    "day1_1_immutability_and_refs",
     "day1_2_struct_declare",
     
     "day2_1_functions_clousures", 
@@ -17,6 +20,7 @@ members = [
     "step4", # validation
     "step5", # error handling and dependency injection
     "step6", # database
-    "step7"  # database orm
-    #"step_final"
+    "step7",  # database orm
+    "step_final",
 ]
+
